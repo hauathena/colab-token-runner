@@ -24,4 +24,4 @@ jobs:
 
       - name: Run notebook
         run: |
-          jupyter nbconvert --to notebook --execute token-generator.ipynb --output executed.ipynb
+          jupyter nbconvert --to notebook --execute token_generator.ipynb --output executed.ipynb
