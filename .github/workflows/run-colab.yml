@@ -8,6 +8,7 @@ on:
 jobs:
   run-notebook:
     runs-on: ubuntu-latest
+    environment: chat
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,5 +28,7 @@ jobs:
           echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" > sa.json
 
       - name: Run notebook
+        env: 
+          SERVICE_ACCOUNT_JSON: "sa.json"
         run: |
           jupyter nbconvert --to notebook --execute token_generator.ipynb --output executed.ipynb
